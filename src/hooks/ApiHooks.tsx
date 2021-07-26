@@ -48,7 +48,7 @@ const useCategoryItems = (cat: string) => {
 
     useEffect(()=> {
         fetchUrl();
-    }, []);
+    }, [cat]);
     
     return data;
 }
