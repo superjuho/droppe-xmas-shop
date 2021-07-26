@@ -1,15 +1,17 @@
-import React from 'react';
-import { useAllItems } from '../hooks/ApiHooks'
+import React from 'react'
+import { useCategoryItems } from '../hooks/ApiHooks'
 import { Link } from 'react-router-dom'
 import '../styles/StoreTable.css'
-import cartIcon from '../static/icons/cartIcon.png'
 
-const StoreTable = () => {
-    const itemArray = useAllItems();
-    console.log("Täämmöne", itemArray);
+const CategoryTable = (cat: any) => {
+   
+    const itemArray = useCategoryItems(cat.match.params.cat);
 
     return (
         <>
+        <h2>
+             {cat.match.params.cat}
+         </h2>
         <div className="storeTable">
             {itemArray.map((item: any) =>
             <Link className="link" to={"/item/" + item.id}>
@@ -17,13 +19,8 @@ const StoreTable = () => {
                     <img className="itemImage" src={item.image} alt="itemimage"></img>
                     <div className="itemText">
                         <div className="itemTitle">{item.title}</div>
-                        <Link className="link" to={"/category/" + item.category}>
-                            <div className="itemCat">{item.category} </div>
-                        </Link>
+                        <div className="itemCat">{item.category} </div>
                         <div className="itemPrice">{item.price} €</div>
-                        <div className="addToCart">
-                            <img className="addToCartBtn"src={cartIcon} alt="cartIcon"></img>
-                        </div>
                     </div>
                 </div>
             </Link>
@@ -33,4 +30,5 @@ const StoreTable = () => {
     )
 }
 
-export default StoreTable;
+
+export default CategoryTable

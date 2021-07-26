@@ -1,0 +1,54 @@
+.navigation {
+    width: 100vw;
+    height: 60px;
+    background-color: pink;
+    display: flex;
+}
+
+.droppyXmas {
+    padding-left: 40px;
+    animation: color-change 6s infinite;
+    font-size: 1.2rem;
+    float: left;
+    margin: 20px;
+  }
+
+a {
+    text-decoration: none;
+}
+  @keyframes color-change {
+    0% { color: red; }
+    25% { color: green; }
+    50% { color: lightgreen;}
+    75% { color: lightpink; }
+    100% { color: red; }
+  }
+
+.categories {
+    margin: 20px;
+    padding-left: 120px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content .cat {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .categories:hover .dropdown-content {display: block;}
+  
+  .categories:hover .dropbtn {background-color: #3e8e41;}

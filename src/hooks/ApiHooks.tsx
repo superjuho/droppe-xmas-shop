@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react"
 
 const baseUrl = "https://fakestoreapi.com/";
@@ -29,7 +30,27 @@ const useAllItems = () => {
 
 //Using selected category items in front page. Cat being the category.
 const useCategoryItems = (cat: string) => {
+    const [data, setData] : any = useState([]);
+    const fetchUrl = async () => {
+        const results = await fetch(baseUrl + 'products/category/' + cat);
+        const json = await results.json();
 
+        const items = await Promise.all(
+            json.map(async (item: any) => {
+                return {
+                   ...item, 
+                }
+            })
+        );
+        console.log('useCategory', items);
+        setData(items);
+    }
+
+    useEffect(()=> {
+        fetchUrl();
+    }, []);
+    
+    return data;
 }
 
 //Using selected item in it's own page.

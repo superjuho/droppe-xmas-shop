@@ -8,12 +8,16 @@
 
 .itemTitle {
     font-size: 1rem;
+    height: 50px;
+    width: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .itemImage {
     max-width: 240px;
     max-height: 240px;
-    padding: 40px;
+    padding: 40px 105px 40px 105px;
 }
 
 .itemPrice {
@@ -36,15 +40,35 @@
     margin: 20px;
     height: 420px;
     width: 420px;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
 .itemText {
     padding: 10px;
     overflow: hidden;
-    float: bottom;
+    position: absolute;
+    bottom: 10px;
     color: black;
+    width: 400px;
 }
 
 .link {
     text-decoration: none;
+}
+.addToCartBtn {
+    width: 30px;
+    margin: auto;
+    display: block;
+    
+}
+
+.addToCart {
+    background-color: lightgreen;
+    width: 60px;
+    height: 30px;
+    float: right;
+    align-items: center;
+    margin-right: 30px;
 }
