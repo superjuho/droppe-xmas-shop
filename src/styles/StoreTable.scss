@@ -1,0 +1,50 @@
+.storeTable {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 140px;
+    left: 140px;
+}
+
+.itemTitle {
+    font-size: 1rem;
+}
+
+.itemImage {
+    max-width: 240px;
+    max-height: 240px;
+    padding: 40px;
+}
+
+.itemPrice {
+    float: right;
+    font-size: .8rem;
+    
+}
+
+.itemCat {
+    font-size: .8rem;
+    
+}
+
+.item {
+    background-color: white;
+    border-style: outset;
+    border-radius: 3px;
+    border-color: aqua;
+    border-width: 4px;
+    margin: 20px;
+    height: 420px;
+    width: 420px;
+}
+
+.itemText {
+    padding: 10px;
+    overflow: hidden;
+    float: bottom;
+    color: black;
+}
+
+.link {
+    text-decoration: none;
+}

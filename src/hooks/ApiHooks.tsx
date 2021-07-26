@@ -34,7 +34,20 @@ const useCategoryItems = (cat: string) => {
 
 //Using selected item in it's own page.
 const useSingleItem = (id: number) => {
+    const [data, setData] : any = useState([]);
+    const fetchUrl = async (fileid: number) => {
+        const results = await fetch(baseUrl + 'products/' + id);
+        const item = await results.json();
+        console.log('useItem', item);
+        setData(item);
+    };
 
+    useEffect(()=> {
+        fetchUrl(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]);
+    
+    return data;
 }
 
 export {

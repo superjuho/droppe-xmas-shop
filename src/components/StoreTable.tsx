@@ -1,5 +1,7 @@
 import React from 'react';
-import { useAllItems } from '../hooks/ApiHooks';
+import { useAllItems } from '../hooks/ApiHooks'
+import { Link } from 'react-router-dom'
+import '../styles/StoreTable.css'
 
 const StoreTable = () => {
     const itemArray = useAllItems();
@@ -7,15 +9,18 @@ const StoreTable = () => {
 
     return (
         <>
-        <div>
+        <div className="storeTable">
             {itemArray.map((item: any) =>
-            <div>
-            <img src={item.image} alt="itemimage"></img>
-            <div>
-            <p>{item.title}</p>
-            <p>{item.price}</p>
-            </div>
-            </div>
+            <Link className="link" to={"/item/" + item.id}>
+                <div className="item">
+                    <img className="itemImage" src={item.image} alt="itemimage"></img>
+                    <div className="itemText">
+                        <div className="itemTitle">{item.title}</div>
+                        <div className="itemCat">{item.category} </div>
+                        <div className="itemPrice">{item.price} €</div>
+                    </div>
+                </div>
+            </Link>
             )}
         </div>
         </>
