@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   position: absolute;
-  top: 140px;
-  left: 140px;
+  top: 20vh;
+  left: 15vw;
+  padding-bottom: 160px;
 }
 
 .itemTitle {
@@ -12,6 +13,7 @@
   width: auto;
   overflow: hidden;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .itemImage {
@@ -27,6 +29,7 @@
 
 .itemCat {
   font-size: .8rem;
+  font-style: oblique;
 }
 
 .item {
@@ -41,6 +44,7 @@
   padding: 20px;
   overflow: hidden;
   position: relative;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .itemText {

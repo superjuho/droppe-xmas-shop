@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useShoppingCarts } from '../hooks/ApiHooks'
 import '../styles/Nav.css'
 
 const Nav = () => {
@@ -11,7 +12,7 @@ const Nav = () => {
             const results = await fetch(baseUrl + 'products/categories');
             const categories = await results.json();
     
-            
+            window.addEventListener("scroll", handleScroll);    
             setData(categories);
         }
     
@@ -21,8 +22,24 @@ const Nav = () => {
         
         return data;
     }
-    const categories = useCategoryItems();
-    console.log("tässä nää navi categoriat", categories);
+    const categories = useCategoryItems()
+    const carts = useShoppingCarts(3)
+
+
+    
+    const handleScroll = () => { // Navigation scroll behaviour
+        if (window.scrollY > 20 && document.querySelector(".navigation") !== null) {
+            const nav = document.querySelector(".navigation") as HTMLDivElement
+            nav.className = "navigationActive"
+        } else if (window.scrollY === 0 && document.querySelector(".navigationActive") !== null) {
+            const nav = document.querySelector(".navigationActive") as HTMLDivElement
+            nav.className = "navigation"
+        }
+    }
+
+    useEffect(() => {
+        handleScroll();
+    }, [])
 
     return (
         <>
@@ -57,7 +74,20 @@ const Nav = () => {
                 <div className="shoppingCart">
                     Shopping Cart 🛒
                     <div className="cart">
-                        0$ You have nothing here :(
+                        {carts.map((item: any) =>
+                        <div className="carts">
+                             cart: {item.id}
+                            {item.products.map((item: any)=>
+                            <div className="cartProducts">
+                            <div className="product">
+                               product: {item.productId}
+                            </div>
+                            <div className="quantity">
+                              quantity: {item.quantity}
+                            </div>
+                        </div>)}
+                        </div>
+                            )}
                     </div>
                 </div>
         </div>

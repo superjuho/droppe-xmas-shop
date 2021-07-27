@@ -17,7 +17,7 @@ const useAllItems = () => {
                 }
             })
         );
-        console.log('useAllTiems', items);
+        // console.log('useAllTiems', items);
         setData(items);
     }
 
@@ -42,7 +42,7 @@ const useCategoryItems = (cat: string) => {
                 }
             })
         );
-        console.log('useCategory', items);
+        // console.log('useCategory', items);
         setData(items);
     }
 
@@ -71,8 +71,41 @@ const useSingleItem = (id: number) => {
     return data;
 }
 
-const useShoppingCart = () => {
+const useShoppingCarts = (id: number) => {
+    const [data, setData] : any = useState([]);
+    const fetchUrl = async () => {
+        const results = await fetch(baseUrl + 'carts/user/' + id);
+        const carts = await results.json();
+        const dataWithProductInfo = await Promise.all(carts.map( async (cart: any) => {
+            const productInfos = await Promise.all(cart.products.map(async( info: any )=> {
+                const productInfo = getProductInfo(info.productId)
+                return productInfo;
+            }))
+            return {
+                ...cart,
+                productInfos,
+            }
+        }))
+        setData(dataWithProductInfo);
+    }
 
+    useEffect(()=> {
+        fetchUrl();
+    }, []);
+    console.log("koridata", data);
+    return data;
+}
+
+
+
+
+const getProductInfo = async (id: number) => {
+    const results = await fetch('https://fakestoreapi.com/products/' + id);
+    const itemInfo = await results.json();
+    const data = []
+    data.push(itemInfo.title, itemInfo.price);
+    return data;
+   
 }
 
 const makeUser = () => {
@@ -87,7 +120,7 @@ export {
     useAllItems,
     useCategoryItems,
     useSingleItem,
-    useShoppingCart,
+    useShoppingCarts,
     makeUser,
     addToCart,
 }

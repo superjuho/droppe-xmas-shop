@@ -6,10 +6,12 @@ import cartIcon from '../static/icons/cartIcon.png'
 
 const StoreTable = () => {
     const itemArray = useAllItems();
-    console.log("Täämmöne", itemArray);
 
     return (
         <>
+        <div className="categoryTitle">
+             All Products
+        </div>
         <div className="storeTable">
             {itemArray.map((item: any) =>
             <Link className="link" to={"/item/" + item.id}>
