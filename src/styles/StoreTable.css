@@ -7,7 +7,7 @@
 }
 
 .itemTitle {
-  font-size: 1rem;
+  font-size: .9rem;
   height: 50px;
   width: auto;
   overflow: hidden;
@@ -22,7 +22,7 @@
 
 .itemPrice {
   float: right;
-  font-size: .8rem;
+  font-size: 1.1rem;
 }
 
 .itemCat {
@@ -33,7 +33,7 @@
   background-color: white;
   border-style: outset;
   border-radius: 3px;
-  border-color: aqua;
+  border-color: limegreen;
   border-width: 4px;
   margin: 20px;
   height: 420px;
@@ -54,6 +54,7 @@
 
 .link {
   text-decoration: none;
+  color: black;
 }
 
 .addToCartBtn {
@@ -69,4 +70,5 @@
   float: right;
   align-items: center;
   margin-right: 30px;
+  border-radius: 3px;
 }

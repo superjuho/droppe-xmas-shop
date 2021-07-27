@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSingleItem } from '../hooks/ApiHooks'
 import { Link } from 'react-router-dom'
+import '../styles/Item.css'
 
 
 const Item = (id: any) => {
@@ -9,20 +10,24 @@ const Item = (id: any) => {
 
 
     return (
-        <div>
-            <h2>{itemInfo.title}</h2>
-            <Link className="link" to={"/category/" + itemInfo.category}>
-                            <div className="itemCat">{itemInfo.category} </div>
-                        </Link>
-            <img src={itemInfo.image} alt="itemimage"/>
-            <div>
-                <div>
+        <div className="singleItem">
+            <img src={itemInfo.image} alt="itemimage" className="singleItemImage"/>
+            <div className="itemFooter">
+                <div className="singleItemTitle">{itemInfo.title}</div>
+                <div className="singleItemPrice">
+                            {itemInfo.price} €
+                        </div>
+                <Link className="singleItemCat" to={"/category/" + itemInfo.category}>
+                    {itemInfo.category}
+                    </Link>
+                <div className="itemDescription">
                     {itemInfo.description}
                 </div>
-                <div>
-                    {itemInfo.price} €
+                
+                    <div className="singleItemAddToCartBtn">
+                        Add To Cart!
+                    </div>
                 </div>
-            </div>
         </div>
     )
 }

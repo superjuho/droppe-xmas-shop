@@ -32,6 +32,11 @@ const Nav = () => {
                     Droppy Xmas!
                 </div>
                 </Link>
+                <Link to="/">
+                    <div className="navigationItem">
+                        All Products
+                    </div>
+                </Link>
                 <div className="categories">
                     <div className="catTitle">
                         Category    
@@ -43,11 +48,17 @@ const Nav = () => {
                                 {item}
                             </div>
                         </Link>
-                        
-                        
                     )}
                     </div>
-                    
+                </div>
+                <div className="navigationItem">
+                    🗨 Contact 
+                </div>
+                <div className="shoppingCart">
+                    Shopping Cart 🛒
+                    <div className="cart">
+                        0$ You have nothing here :(
+                    </div>
                 </div>
         </div>
         </>

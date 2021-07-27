@@ -71,8 +71,23 @@ const useSingleItem = (id: number) => {
     return data;
 }
 
+const useShoppingCart = () => {
+
+}
+
+const makeUser = () => {
+
+}
+
+const addToCart = () => {
+
+}
+
 export {
     useAllItems,
     useCategoryItems,
     useSingleItem,
+    useShoppingCart,
+    makeUser,
+    addToCart,
 }
