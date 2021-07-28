@@ -95,7 +95,6 @@ const useShoppingCarts = (id: number) => {
     useEffect(()=> {
         fetchUrl();
     }, []);
-    console.log("koridata", data);
     return data;
 }
 

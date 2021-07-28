@@ -13,6 +13,7 @@ const CategoryTable = (cat: any) => {
         const [text, setText] = useState("")
         const texie = cat.match.params.cat;
         const itemArray = useCategoryItems(cat.match.params.cat);
+        const cartId = 1;
 
         
 
@@ -52,11 +53,9 @@ const CategoryTable = (cat: any) => {
                         <div className="itemTitle">{item.title}</div>
                         <div className="itemCat">{item.category} </div>
                         <div className="itemPrice">{item.price} €</div>
-                        <div className="addToCart">
-                        <button className="addToCart" onClick={context.addProductToCart.bind(this, item)}>
+                        <button className="addToCart" onClick={context.addProductToCart.bind(this, item, cartId)}>
                             <img className="addToCartBtn"src={cartIcon} alt="cartIcon"></img>
                             </button>
-                        </div>
                     </div>
                 </div>
             

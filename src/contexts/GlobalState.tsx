@@ -12,11 +12,11 @@ const GlobalState = (props: any) => {
   const addProductToCart = (product: any) => {
     setTimeout(() => {
       // setCart(updatedCart);
-      dispatch({ type: ADD_PRODUCT, product: product });
+      dispatch({ type: ADD_PRODUCT, product: product});
     }, 700);
   };
 
-  const removeProductFromCart = (productId : any) => {
+  const removeProductFromCart = (productId : number) => {
     setTimeout(() => {
       // setCart(updatedCart);
       dispatch({ type: REMOVE_PRODUCT, productId: productId });
