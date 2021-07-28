@@ -3,6 +3,7 @@ import Home from './views/Home';
 import Item from './views/Item';
 import Nav from './components/Nav';
 import Cart from './views/Cart';
+import Snow from './components/Snow'
 import CategoryTable from './components/CategoryTable';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -22,7 +23,7 @@ const App = () => {
           </>
         )}
             </ShopContext.Consumer>
-      
+      <Snow/>
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/item/:id" exact component={Item}/>
