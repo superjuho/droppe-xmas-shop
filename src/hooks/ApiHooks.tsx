@@ -78,12 +78,15 @@ const useShoppingCarts = (id: number) => {
         const carts = await results.json();
         const dataWithProductInfo = await Promise.all(carts.map( async (cart: any) => {
             const productInfos = await Promise.all(cart.products.map(async( info: any )=> {
-                const productInfo = getProductInfo(info.productId)
-                return productInfo;
+                const productInfo = await getProductInfo(info.productId)
+                return {
+                    ...info,
+                    ...productInfo,
+                }
             }))
             return {
                 ...cart,
-                productInfos,
+                products: productInfos,
             }
         }))
         setData(dataWithProductInfo);
@@ -102,8 +105,10 @@ const useShoppingCarts = (id: number) => {
 const getProductInfo = async (id: number) => {
     const results = await fetch('https://fakestoreapi.com/products/' + id);
     const itemInfo = await results.json();
-    const data = []
-    data.push(itemInfo.title, itemInfo.price);
+    const data = {title:"", price:"", image:""}
+    data.title = itemInfo.title
+    data.price = itemInfo.price
+    data.image = itemInfo.image
     return data;
    
 }

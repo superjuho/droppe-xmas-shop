@@ -1,38 +1,42 @@
 import React from 'react';
-import { useAllItems } from '../hooks/ApiHooks'
 import { Link } from 'react-router-dom'
+import ShopContext from '../contexts/ShopContext'
 import '../styles/StoreTable.css'
 import cartIcon from '../static/icons/cartIcon.png'
 
-const StoreTable = () => {
-    const itemArray = useAllItems();
-
+const StoreTable = (props: any) => {
     return (
         <>
         <div className="categoryTitle">
-             All Products
+        All Products
         </div>
-        <div className="storeTable">
-            {itemArray.map((item: any) =>
-            <Link className="link" to={"/item/" + item.id}>
-                <div className="item">
-                    <img className="itemImage" src={item.image} alt="itemimage"></img>
-                    <div className="itemText">
-                        <div className="itemTitle">{item.title}</div>
-                        <Link className="link" to={"/category/" + item.category}>
-                            <div className="itemCat">{item.category} </div>
+        <ShopContext.Consumer>
+          {context => (
+              <div className="storeTable">
+                  {context.products.map((product: any) => (
+                   
+                    <div className="item">
+                        <Link className="link" to={"/item/" + product.id}>
+                        <img className="itemImage" src={product.image} alt="itemimage"></img>
                         </Link>
-                        <div className="itemPrice">{item.price} €</div>
-                        <div className="addToCart">
-                            <img className="addToCartBtn"src={cartIcon} alt="cartIcon"></img>
+                        <div className="itemText">
+                            <div className="itemTitle">{product.title}</div>
+                            <Link className="link" to={"/category/" + product.category}>
+                                <div className="itemCat">{product.category} </div>
+                            </Link>
+                            <div className="itemPrice">{product.price} €</div>
+                            <button className="addToCart" onClick={context.addProductToCart.bind(this, product)}>
+                                <img className="addToCartBtn"src={cartIcon} alt="cartIcon"></img>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </Link>
-            )}
-        </div>
-        </>
-    )
-}
-
-export default StoreTable;
+                  ))}
+              </div>
+          )}
+        </ShopContext.Consumer>
+      </>
+      );
+    };
+    
+ 
+    export default StoreTable;

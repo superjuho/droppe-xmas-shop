@@ -1,0 +1,45 @@
+.shoppingCartTitle {
+  font-size: 2rem;
+  position: absolute;
+  top: 20vh;
+  right: 20vw;
+}
+
+.cart {
+  display: flex;
+  position: absolute;
+  top: 30vh;
+  right: 20vw;
+  width: 70vw;
+  height: auto;
+  background-color: white;
+  border-style: outset;
+  border-radius: 4px;
+  border-color: pink;
+  overflow: hidden;
+  z-index: 1;
+  padding: 20px;
+}
+
+.itemInCart {
+  display: inline-block;
+  border-style: solid;
+  border-color: white;
+  border-bottom-color: pink;
+  min-width: 900px;
+}
+
+.cartItemImage {
+  max-width: 6vh;
+  padding: 5px;
+  margin: 5px;
+}
+
+.removeFromCartBtn {
+  padding: 5px;
+  color: white;
+  background-color: #751d37;
+  border-color: lime;
+  float: right;
+  margin: 2px;
+}

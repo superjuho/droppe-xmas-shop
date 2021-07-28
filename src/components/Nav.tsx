@@ -1,10 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useShoppingCarts } from '../hooks/ApiHooks'
 import '../styles/Nav.css'
 
-const Nav = () => {
+const Nav = (props: any) => {
     const baseUrl = "https://fakestoreapi.com/"
     const useCategoryItems = () => {
         const [data, setData] : any = useState([]);
@@ -23,8 +22,6 @@ const Nav = () => {
         return data;
     }
     const categories = useCategoryItems()
-    const carts = useShoppingCarts(3)
-
 
     
     const handleScroll = () => { // Navigation scroll behaviour
@@ -71,25 +68,9 @@ const Nav = () => {
                 <div className="navigationItem">
                     🗨 Contact 
                 </div>
-                <div className="shoppingCart">
-                    Shopping Cart 🛒
-                    <div className="cart">
-                        {carts.map((item: any) =>
-                        <div className="carts">
-                             cart: {item.id}
-                            {item.products.map((item: any)=>
-                            <div className="cartProducts">
-                            <div className="product">
-                               product: {item.productId}
-                            </div>
-                            <div className="quantity">
-                              quantity: {item.quantity}
-                            </div>
-                        </div>)}
-                        </div>
-                            )}
-                    </div>
-                </div>
+                <Link className="shoppingCart" to="/cart">
+                    Shopping Cart 🛒 ({props.cartItemNumber})
+                </Link>
         </div>
         </>
     )

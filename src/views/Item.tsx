@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSingleItem } from '../hooks/ApiHooks'
 import { Link } from 'react-router-dom'
+import ShopContext from '../contexts/ShopContext'
 import '../styles/Item.css'
 
 
@@ -10,6 +11,8 @@ const Item = (id: any) => {
 
 
     return (
+        <ShopContext.Consumer>
+          {context => (
         <div className="singleItem">
             <img src={itemInfo.image} alt="itemimage" className="singleItemImage"/>
             <div className="itemFooter">
@@ -24,11 +27,13 @@ const Item = (id: any) => {
                     {itemInfo.description}
                 </div>
                 
-                    <div className="singleItemAddToCartBtn">
+                    <button className="singleItemAddToCartBtn" onClick={context.addProductToCart.bind(this, itemInfo)}>
                         Add To Cart!
-                    </div>
+                    </button>
                 </div>
         </div>
+         )}
+         </ShopContext.Consumer>
     )
 }
 
