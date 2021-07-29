@@ -1,8 +1,8 @@
 .categoryTitle {
   position: absolute;
   top: 10vh;
-  padding-left: 150px;
-  font-size: 2rem;
+  left: 5vw;
+  font-size: 2em;
   font-style: oblique;
   text-shadow: 2px 2px 4px white;
 }

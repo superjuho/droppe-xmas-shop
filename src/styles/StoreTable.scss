@@ -1,10 +1,15 @@
 .storeTable {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    top: 20vh;
-    left: 15vw;
-    padding-bottom: 160px;
+    padding: 15vh 3vw 100px 14vw;
+}
+
+@media screen and (max-width: 600px)  {
+    .storeTable {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15vh 3vw 100px 6vw;
+    }
 }
 
 .itemTitle {
@@ -21,16 +26,26 @@
     max-width: 240px;
     max-height: 240px;
     padding: 40px 105px 40px 105px;
+    transition: transform .2s;
+}
+
+.itemImage:hover {
+    transform: scale(1.2);
 }
 
 .itemPrice {
     float: right;
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .itemCat {
     font-size: .8rem;
     font-style: oblique;
+}
+.itemCat:hover {
+    transition: padding-left 1s;
+    padding-left: 8px;
 }
 
 .item {
@@ -48,6 +63,11 @@
     box-shadow: 2px 5px 5px rgba(0,0,0,.3)
 }
 
+.item:hover {
+    border-style: inset;
+    box-shadow: 3px 6px 4px rgba(0,0,0,.3)
+}
+
 .itemText {
     padding: 10px;
     overflow: hidden;
@@ -55,6 +75,7 @@
     bottom: 10px;
     color: black;
     width: 400px;
+    background-color: white;
 }
 
 .link {
@@ -68,6 +89,7 @@
     
 }
 
+
 .addToCart {
     background-color: lightgreen;
     width: 60px;
@@ -76,4 +98,10 @@
     align-items: center;
     margin-right: 30px;
     border-radius: 3px;
+    transition: transform .2s;
+}
+
+.addToCart:hover {
+    background-color: green;
+    transform: scale(.95)
 }

@@ -37,6 +37,10 @@
     display: inline-block;
   }
 
+  .droppyXmas:hover {
+    animation: color-change .9s infinite;
+  }
+
 a {
     text-decoration: none;
 }
@@ -83,7 +87,7 @@ a :hover {
   }
 
   .catTitle:hover {
-    color: rgb(253, 130, 151);
+    animation: color-change 6s infinite;
   }
 
 
@@ -101,11 +105,11 @@ a :hover {
   }
 
   .navigationItem:hover {
-    color: rgb(253, 130, 151);
+    animation: color-change 6s infinite;
   }
   
   .shoppingCart:hover {
-    color: rgb(253, 130, 151);
+    animation: color-change 6s infinite;
   }
 
   .cart {

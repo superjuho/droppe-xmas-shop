@@ -1,5 +1,8 @@
 .snowBody {
-    min-height: 150vh;
+    position:fixed;
+    height: 100%;
+    top: 0;
+    width: 100%;
     background: seagreen;
     overflow: hidden;
     filter: drop-shadow(0 0 10px seagreen);

@@ -53,6 +53,11 @@
   max-width: 30vh;
   margin: 60px;
   border-radius: 4px;
+  transition: transform .2s;
+}
+
+.singleItemImage:hover {
+  transform: scale(1.5);
 }
 
 .itemDescription {
@@ -75,4 +80,10 @@
   padding-left: 20px;
   border-radius: 4px;
   margin: 0;
+  transition: transform .2s;
+}
+
+.singleItemAddToCartBtn:hover {
+  transform: scale(.99);
+  background-color: green;
 }
