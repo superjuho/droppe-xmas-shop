@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+# THIS VERSION OF THE PROJECT IS NOT OPTIMISED FOR MOBILE SCREENS !
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## To test project, clone or download
 
-In the project directory, you can run:
+In the droppe-xmas-shop directory, you can run:
 
 ### `npm start`
 

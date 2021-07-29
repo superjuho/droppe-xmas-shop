@@ -48,7 +48,7 @@ const Nav = (props: any) => {
                 </Link>
                 <Link to="/">
                     <div className="navigationItem">
-                        All Products
+                        All Products 🎁
                     </div>
                 </Link>
                 <div className="categories">
